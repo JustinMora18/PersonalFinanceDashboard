@@ -3,6 +3,5 @@ pandas
 matplotlib
 seaborn
 numpy
-
-#to install the requirements: 'pip install -r requirements.txt'
-
+streamlit-option-menu
+Pillow
