@@ -1,28 +1,24 @@
 import streamlit as st
-from streamlit_option_menu import option_menu
 import pandas as pd
-from PIL import Image
 import incomes, expenses
+from PIL import Image
+from streamlit_option_menu import option_menu
+from rightSideInfo import allAccounts
 
 st.set_page_config(
-    page_title="Personal Finance Dashboard", page_icon="💰", 
-    layout="wide",
-    initial_sidebar_state="expanded")
+    page_title='Personal Finance Dashboard', page_icon='💰', 
+    layout='wide',
+    initial_sidebar_state='expanded')
 
-#initialice session_state
-if "selected_category" not in st.session_state:
-    st.session_state.selected_category = None
-
-if "selected_account" not in st.session_state:
-    st.session_state.selected_account = None
-
-if "selected_exp_category" not in st.session_state:
+#initialize the session state variable in case they dont exist
+if 'selected_inc_category' not in st.session_state:
+    st.session_state.selected_inc_category = None
+if 'selected_inc_account' not in st.session_state:
+    st.session_state.selected_inc_account = None
+if 'selected_exp_category' not in st.session_state:
     st.session_state.selected_exp_category = None
-
-if "selected_exp_account" not in st.session_state:
+if 'selected_exp_account' not in st.session_state:
     st.session_state.selected_exp_account = None
-
-
 
 #----Sidebar------------------------
 with st.sidebar:
@@ -34,11 +30,11 @@ if selected == 'Home':
 #----------------------------
 elif selected == 'Incomes':
     st.title('💸 Manage Your Incomes')
-    st.info("- Fill out the form below and select a category on the right to add a new income transaction.")
+    st.info('- Fill out the form below and select a category on the right to add a new income transaction.')
     col1, col2 = st.columns((4.5, 2), gap='medium')
     with col2:
-        incomes.accounts()
-        incomes.categories()
+        incomes.incAccounts()
+        incomes.incCategories()
 
     with col1:
         incomes.form()
@@ -46,11 +42,12 @@ elif selected == 'Incomes':
 #----------------------------
 elif selected == 'Expenses':
     st.title('💸 Manage Your Expenses')
-    st.info("- Fill out the form below and select a category on the right to add a new expense transaction.")
+    st.info('- Fill out the form below and select a category on the right to add a new expense transaction.')
     col1, col2 = st.columns((4.5, 2), gap='medium')
     with col2:
-        incomes.accounts()
+        expenses.expAccounts()
         expenses.categories()
+
     with col1:
         expenses.form()
     st.divider()

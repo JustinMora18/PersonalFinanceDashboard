@@ -1,4 +1,5 @@
 import streamlit as st
+from rightSideInfo import allAccounts
 
 #initialize the session state variable in the they dont exist
 if 'selected_exp_category' not in st.session_state:
@@ -29,14 +30,17 @@ def categories():
             st.session_state.selected_exp_category = '💪🏽 Gym'
         if st.button('🍾 Free Time', key='free_time_btn'):
             st.session_state.selected_exp_category = '🍾 Free Time'
+            
+def expAccounts():
+    allAccounts('expenses') #here we pass 'expenses' form the condition in the rightSideInfo.py
     
 def form():
     st.subheader('Add Expense 💵')
-    selected_exp_category = st.session_state.selected_exp_category or "Select a Category 👉"
-    selected_exp_account = st.session_state.selected_account or "Select a Account 👉"
+    selected_exp_category = st.session_state.selected_exp_category or 'Select a Category 👉'
+    selected_exp_account = st.session_state.selected_exp_account or 'Select a Account 👉'
     
     expName = st.text_input('Enter Expense Name:')
-    expAmount = st.number_input('Enter the expense amount ($)', min_value=0.0, format="%.2f")
+    expAmount = st.number_input('Enter the expense amount ($)', min_value=0.0, format='%.2f')
     expLocation = st.text_input('Enter Location:')
     expAccount = st.selectbox('Payment Method', [selected_exp_account])
     expCategory = st.selectbox('Category', [selected_exp_category])

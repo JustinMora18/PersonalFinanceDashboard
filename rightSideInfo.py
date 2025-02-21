@@ -1,19 +1,27 @@
-# import streamlit as st
+import streamlit as st
 
-# def accounts():
-#     st.header("🏦 Accounts")
-#     col1, col2 = st.columns (2)
-#     selected_account = None
-#     with col1:
-#         if st.button('💵 Cash', key = 'cash_btn'):
-#             selected_account = ('💵 Cash')
-#         if st.button('💳 Card', key = 'card_btn'):
-#             selected_account = ('💳 Card')
+#state variables
+if 'selected_inc_account' not in st.session_state:
+    st.session_state.selected_inc_account = None
+if 'selected_exp_account' not in st.session_state:
+    st.session_state.selected_exp_account = None
 
-#     with col2:
-#         if st.button('💸 Paypal', key = 'paypal_btn'):
-#             selected_account = ('💸 Paypal')
-#         if st.button('🏦 Bank Account', key = 'bank_acc_btn'):
-#             selected_account = ('🏦 Bank Account')
+
+def allAccounts(account_type='income'):
+    st.header('🏦 Accounts')
+    col1, col2 = st.columns (2)
     
-#     return selected_account
+    session_key = 'selected_inc_account' if account_type == 'incomes' else 'selected_exp_account'
+
+    with col1:
+        if st.button('💵 Cash', key=f'cash_btn_{account_type}'):
+            st.session_state[session_key] = '💵 Cash'
+        if st.button('💳 Card', key=f'card_btn_{account_type}'):
+            st.session_state[session_key] = '💳 Card'
+
+    with col2:
+        if st.button('💸 Paypal', key=f'paypal_btn_{account_type}'):
+            st.session_state[session_key] = '💸 Paypal'
+        if st.button('🏦 Bank Account', key=f'bank_acc_btn_{account_type}'):
+            st.session_state[session_key] = '🏦 Bank Account'
+    return st.session_state[session_key]

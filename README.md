@@ -36,7 +36,7 @@
 
     -For MacOS/Linux: 
     ```bash
-            source venv/bin/activate
+            source .venv/bin/activate
     ```
     -After activation, your terminal prompt should change to indicate the active environment. 
 
