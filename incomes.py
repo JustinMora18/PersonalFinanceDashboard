@@ -5,7 +5,7 @@ from rightSideInfo import allAccounts
 if 'selected_inc_category' not in st.session_state:
         st.session_state.selected_inc_category = None
 if 'selected_inc_account' not in st.session_state:
-        st.session_state.selected_account = None
+        st.session_state.selected_inc_account = None
 
 def incCategories():
     st.header('💸 Income Categories')
@@ -33,7 +33,6 @@ def incCategories():
 
 def incAccounts():
     allAccounts(account_type='incomes')
-    #here we pass 'incomes' form the condition in the rightSideInfo.py
 
 def form():
     st.subheader('Add Incomes 💵')
@@ -42,12 +41,13 @@ def form():
 
     incName = st.text_input('Enter Income Name:')
     incAmount = st.number_input('Enter the income amount ($)', min_value=0.0, format='%.2f')
-    incAccount = st.selectbox('Accounts', [selected_inc_account])
+    incAccount = st.selectbox('Account', [selected_inc_account])
     incCategory = st.selectbox('Category', [selected_inc_category])
     incDate = st.date_input('Date:')
     incNote  = st.text_area('Notes (Optional)', height=70)
-    if st.button('Add Transaction'):
-        st.success(f'Your Transaction has been added successfully with Category:       {incCategory},      Amount: ${incAmount}!')
+
+    if st.button('Add Income'):
+        st.success(f'🎈 Your Income has been added successfully!\n\n'f'**➔ Income Name:** {incName}\n\n'f'**➔ Amount:** ${incAmount}\n\n'f'**➔ Payment Method:** {incAccount}\n\n'f'**➔ Category:** {incCategory}\n\n'f'**➔ Date:** {incDate}')
 
 def widgets():
     print('hello word') #test

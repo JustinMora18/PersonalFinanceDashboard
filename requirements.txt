@@ -5,3 +5,4 @@ seaborn
 numpy
 streamlit-option-menu
 Pillow
+time

@@ -1,9 +1,9 @@
 import streamlit as st
 import pandas as pd
-import incomes, expenses
+import incomes, expenses, investments
 from PIL import Image
 from streamlit_option_menu import option_menu
-from rightSideInfo import allAccounts
+from rightSideInfo import allAccounts,show_datetime 
 
 st.set_page_config(
     page_title='Personal Finance Dashboard', page_icon='💰', 
@@ -19,6 +19,10 @@ if 'selected_exp_category' not in st.session_state:
     st.session_state.selected_exp_category = None
 if 'selected_exp_account' not in st.session_state:
     st.session_state.selected_exp_account = None
+if 'selected_invstmt_type' not in st.session_state:
+        st.session_state.selected_invstmt_type = None
+if 'selected_invstmt_account' not in st.session_state:
+        st.session_state.selected_invstmt_account = None
 
 #----Sidebar------------------------
 with st.sidebar:
@@ -30,28 +34,61 @@ if selected == 'Home':
 #----------------------------
 elif selected == 'Incomes':
     st.title('💸 Manage Your Incomes')
-    st.info('- Fill out the form below and select a category on the right to add a new income transaction.')
+
+    colm1, colm2 = st.columns((2, .9), gap='medium')
+    with colm1:
+        st.info('- Fill out the form below and select a category on the right to add a new income transaction.')
+    with colm2:
+        show_datetime()
+
+    st.divider()
+
     col1, col2 = st.columns((4.5, 2), gap='medium')
     with col2:
         incomes.incAccounts()
         incomes.incCategories()
-
     with col1:
         incomes.form()
+
     st.divider()
 #----------------------------
 elif selected == 'Expenses':
     st.title('💸 Manage Your Expenses')
-    st.info('- Fill out the form below and select a category on the right to add a new expense transaction.')
+
+    colm1, colm2 = st.columns((2, .9), gap='medium')
+    with colm1:
+        st.info('- Fill out the form below and select a category on the right to add a new expense transaction.')
+    with colm2:
+        show_datetime()
+
+    st.divider()
+
     col1, col2 = st.columns((4.5, 2), gap='medium')
     with col2:
         expenses.expAccounts()
         expenses.categories()
-
     with col1:
         expenses.form()
     st.divider()
+#----------------------------
+elif selected == 'Investments':
+    st.title('📉 Manage Your Investment')
 
+    colmn1, colmm2 = st.columns((2, .9), gap='medium')
+    with colmn1:
+        st.info('- Fill out the form below and select a category on the right to add a new investment.')
+    with colmm2:
+        show_datetime()
+
+    st.divider()
+
+    col1, col2 = st.columns((4.5, 2), gap='medium')
+    with col2:
+        investments.invstmtAccounts()
+        investments.invstmtType()
+    with col1:
+        investments.form()
+    st.divider()
 #----------------------------
 elif selected == 'Financial Report':
     st.subheader('Generate Report')

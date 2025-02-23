@@ -30,9 +30,9 @@ def categories():
             st.session_state.selected_exp_category = '💪🏽 Gym'
         if st.button('🍾 Free Time', key='free_time_btn'):
             st.session_state.selected_exp_category = '🍾 Free Time'
-            
+
 def expAccounts():
-    allAccounts('expenses') #here we pass 'expenses' form the condition in the rightSideInfo.py
+    allAccounts('expenses')
     
 def form():
     st.subheader('Add Expense 💵')
@@ -47,5 +47,5 @@ def form():
     expDate = st.date_input('Date')
     expNotes = st.text_area('Notes (Optional)', height=70)
 
-    if st.button('Add Transaction'):
-        st.success(f'Your Transaction has been added successfully with Category:       {expCategory},      Amount: ${expAmount}!')
+    if st.button('Add Expense'):
+        st.success(f'🎈 Your Expense has been added successfully!\n\n'f'**➔ Expense Name:** {expName}\n\n'f'**➔ Amount:** ${expAmount}\n\n'f'**➔ Payment Method:** {expAccount}\n\n'f'**➔ Category:** {expCategory}\n\n'f'**➔ Date:** {expDate}')
