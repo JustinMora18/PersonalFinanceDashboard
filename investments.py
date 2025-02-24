@@ -1,5 +1,6 @@
 import streamlit as st
 from rightSideInfo import allAccounts
+from dataFuntions import saveInvestmtData
 
 if 'selected_invstmt_type' not in st.session_state:
         st.session_state.selected_invstmt_type = None
@@ -43,7 +44,18 @@ def form():
     invstmtDate = st.date_input('Date:')
     invstmtNote  = st.text_area('Notes (Optional)', height=70)
         
+    #invesment dictionary 
     if st.button('Add Investment'):
+        investmentData = {
+            'Name': invstmtName,
+            'Amount': invstmtAmount,
+            'Account': invstmtAccount,
+            'type': invstmtType,
+            'Date': invstmtDate,
+            'Note': invstmtNote
+        }
+        saveInvestmtData (investmentData)
+        
         st.success(f'🎈 Your Investment has been added successfully!\n\n'f'**➔ Investment Name:** {invstmtName}\n\n'f'**➔ Amount:** ${invstmtAmount}\n\n'f'**➔ Payment Method:** {invstmtAccount}\n\n'f'**➔ Type:** {invstmtType}\n\n'f'**➔ Date:** {invstmtDate}')
 
 def invstmtAccounts():

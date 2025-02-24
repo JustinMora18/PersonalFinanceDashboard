@@ -1,5 +1,6 @@
 import streamlit as st
 from rightSideInfo import allAccounts
+from dataFuntions import saveIncomeData
 
 #initialize the session state variable in case they dont exist
 if 'selected_inc_category' not in st.session_state:
@@ -47,7 +48,21 @@ def form():
     incNote  = st.text_area('Notes (Optional)', height=70)
 
     if st.button('Add Income'):
+
+        #Dictionary to store the income daata 
+        incomeData = {
+            'Name': incName,
+            'Amount': incAmount,
+            'Account': incAccount,
+            'Category': incCategory,
+            'Date': incDate,
+            'Note': incNote
+        }
+        saveIncomeData (incomeData)
+
+
         st.success(f'🎈 Your Income has been added successfully!\n\n'f'**➔ Income Name:** {incName}\n\n'f'**➔ Amount:** ${incAmount}\n\n'f'**➔ Payment Method:** {incAccount}\n\n'f'**➔ Category:** {incCategory}\n\n'f'**➔ Date:** {incDate}')
+        
 
 def widgets():
     print('hello word') #test

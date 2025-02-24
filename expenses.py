@@ -1,5 +1,6 @@
 import streamlit as st
 from rightSideInfo import allAccounts
+from dataFuntions import saveExpensesData
 
 #initialize the session state variable in the they dont exist
 if 'selected_exp_category' not in st.session_state:
@@ -42,10 +43,22 @@ def form():
     expName = st.text_input('Enter Expense Name:')
     expAmount = st.number_input('Enter the expense amount ($)', min_value=0.0, format='%.2f')
     expLocation = st.text_input('Enter Location:')
-    expAccount = st.selectbox('Payment Method', [selected_exp_account])
+    expPymntMth = st.selectbox('Payment Method', [selected_exp_account])
     expCategory = st.selectbox('Category', [selected_exp_category])
     expDate = st.date_input('Date')
-    expNotes = st.text_area('Notes (Optional)', height=70)
+    expNote = st.text_area('Notes (Optional)', height=70)
 
     if st.button('Add Expense'):
-        st.success(f'🎈 Your Expense has been added successfully!\n\n'f'**➔ Expense Name:** {expName}\n\n'f'**➔ Amount:** ${expAmount}\n\n'f'**➔ Payment Method:** {expAccount}\n\n'f'**➔ Category:** {expCategory}\n\n'f'**➔ Date:** {expDate}')
+        #Dictionary to store the income daata 
+        expensesData = {
+            'Name': expName,
+            'Amount': expAmount,
+            'Location': expLocation,
+            'paymentMthd': expPymntMth,
+            'Category': expCategory,
+            'Date': expDate,
+            'Note': expNote
+        }
+        saveExpensesData (expensesData)
+
+        st.success(f'🎈 Your Expense has been added successfully!\n\n'f'**➔ Expense Name:** {expName}\n\n'f'**➔ Amount:** ${expAmount}\n\n'f'**➔ Payment Method:** {expPymntMth}\n\n'f'**➔ Category:** {expCategory}\n\n'f'**➔ Date:** {expDate}')

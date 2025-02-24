@@ -4,6 +4,7 @@ import incomes, expenses, investments
 from PIL import Image
 from streamlit_option_menu import option_menu
 from rightSideInfo import allAccounts,show_datetime 
+from dataFuntions import create_inc_dataFrame, create_exp_dataFrame, create_invstmt_dataFrame
 
 st.set_page_config(
     page_title='Personal Finance Dashboard', page_icon='💰', 
