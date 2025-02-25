@@ -2,10 +2,13 @@ import streamlit as st
 from rightSideInfo import allAccounts
 from dataFuntions import saveInvestmtData
 
+#initialize the session state variable in case they dont exist
 if 'selected_invstmt_type' not in st.session_state:
         st.session_state.selected_invstmt_type = None
 if 'selected_invstmt_account' not in st.session_state:
         st.session_state.selected_invstmt_account = None
+if 'success_message_investmt' not in st.session_state:
+        st.session_state.success_message_investmt = None 
 
 def invstmtType():
     st.header('💸 Investment Type')
@@ -13,24 +16,26 @@ def invstmtType():
     
     with col1:
         if st.button('📊 Stocks', key='stocks_btn'):
-            st.session_state.selected_invstmt_type = '📊 Stocks'
+            st.session_state.selected_invstmt_type = 'Stocks'
         if st.button('📑 Mutual funds', key='mutual_funds_btn'):
-            st.session_state.selected_invstmt_type = '📑 Mutual funds'
+            st.session_state.selected_invstmt_type = 'Mutual funds'
         if st.button('📉 ETFs', key='ETFs_btn'):
-            st.session_state.selected_invstmt_type = '📉 ETFs'
+            st.session_state.selected_invstmt_type = 'ETFs'
         if st.button('🎨 Collectibles', key='collectible_btn'):
-            st.session_state.selected_invstmt_type = '🎨 Collectibles'
+            st.session_state.selected_invstmt_type = 'Collectibles'
 
     with col2:
         if st.button('🚀 Startup', key='startup_btn'):
-            st.session_state.selected_invstmt_type = '🚀 Startup'
+            st.session_state.selected_invstmt_type = 'Startup'
         if st.button('🪙 Cryptocurrency', key='cryptocurrency_btn'):
-            st.session_state.selected_invstmt_type= '🪙 Cryptocurrency'
+            st.session_state.selected_invstmt_type= 'Cryptocurrency'
         if st.button('⚱️ Gold', key='gold_btn'):
-            st.session_state.selected_invstmt_type = '⚱️ Gold'
+            st.session_state.selected_invstmt_type = 'Gold'
         if st.button('🤑 Other invts', key='other_invstmts-btn'):
-            st.session_state.selected_invstmt_type = '🤑 Other invts'
+            st.session_state.selected_invstmt_type = 'Other invts'
 
+def invstmtAccounts():
+    allAccounts(account_type='investments')
 
 def form():
     st.subheader('Add Investment 💵')
@@ -43,20 +48,26 @@ def form():
     invstmtType = st.selectbox('Type', [selected_invstmt_type])
     invstmtDate = st.date_input('Date:')
     invstmtNote  = st.text_area('Notes (Optional)', height=70)
-        
-    #invesment dictionary 
+
+    #----Button------------------------
     if st.button('Add Investment'):
+        #Invesment dictionary 
         investmentData = {
             'Name': invstmtName,
             'Amount': invstmtAmount,
-            'Account': invstmtAccount,
+            'InvPaymentMthd': invstmtAccount,
             'type': invstmtType,
             'Date': invstmtDate,
             'Note': invstmtNote
         }
         saveInvestmtData (investmentData)
         
-        st.success(f'🎈 Your Investment has been added successfully!\n\n'f'**➔ Investment Name:** {invstmtName}\n\n'f'**➔ Amount:** ${invstmtAmount}\n\n'f'**➔ Payment Method:** {invstmtAccount}\n\n'f'**➔ Type:** {invstmtType}\n\n'f'**➔ Date:** {invstmtDate}')
+        #Save the message in a session state
+        st.session_state.success_message_investmt = (f'🎈 Your Investment has been added successfully!\n\n'f'**➔ Name:** {invstmtName}\n\n'f'**➔ Amount:** ${invstmtAmount}\n\n'f'**➔ Payment Method:** {invstmtAccount}\n\n'f'**➔ Type:** {invstmtType}\n\n'f'**➔ Date:** {invstmtDate}\n\n'f'**➔ Note:**{invstmtNote}'
+        )
 
-def invstmtAccounts():
-    allAccounts(account_type='investments')
+        #Save the message in session_state only if the user add a income
+    if st.session_state.success_message_investmt:
+        st.success(st.session_state.success_message_investmt)
+        #clear the message at the end
+        st.session_state.success_message_investmt = None

@@ -3,7 +3,7 @@ import pandas as pd
 import incomes, expenses, investments
 from PIL import Image
 from streamlit_option_menu import option_menu
-from rightSideInfo import allAccounts,show_datetime 
+from rightSideInfo import allAccounts,show_date 
 from dataFuntions import create_inc_dataFrame, create_exp_dataFrame, create_invstmt_dataFrame
 
 st.set_page_config(
@@ -40,7 +40,7 @@ elif selected == 'Incomes':
     with colm1:
         st.info('- Fill out the form below and select a category on the right to add a new income transaction.')
     with colm2:
-        show_datetime()
+        show_date()
 
     st.divider()
 
@@ -60,7 +60,7 @@ elif selected == 'Expenses':
     with colm1:
         st.info('- Fill out the form below and select a category on the right to add a new expense transaction.')
     with colm2:
-        show_datetime()
+        show_date()
 
     st.divider()
 
@@ -79,7 +79,7 @@ elif selected == 'Investments':
     with colmn1:
         st.info('- Fill out the form below and select a category on the right to add a new investment.')
     with colmm2:
-        show_datetime()
+        show_date()
 
     st.divider()
 

@@ -7,6 +7,8 @@ if 'selected_exp_category' not in st.session_state:
         st.session_state.selected_exp_category = None
 if 'selected_exp_account' not in st.session_state:
         st.session_state.selected_exp_account = None
+if 'success_message_expenses' not in st.session_state:
+        st.session_state.success_message_expenses = None 
 
 def categories():
     st.header('💸 Expenses Categories')
@@ -14,23 +16,23 @@ def categories():
 
     with col1:
         if st.button('🏠 Rent', key='rent_btn'):
-            st.session_state.selected_exp_category = '🏠 Rent'
+            st.session_state.selected_exp_category = 'Rent'
         if st.button('🍱 Food', key='food_btn'):
-            st.session_state.selected_exp_category = '🍱 Food'
+            st.session_state.selected_exp_category = 'Food'
         if st.button('⛽️ Gas', key='gas_btn'):
-            st.session_state.selected_exp_category = '⛽️ Gas'
+            st.session_state.selected_exp_category = 'Gas'
         if st.button('📚 Education', key='education_btn'):
-            st.session_state.selected_exp_category = '📚 Education'
+            st.session_state.selected_exp_category = 'Education'
             
     with col2:
         if st.button('😷 Health', key='health_btn'): 
-            st.session_state.selected_exp_category = '😷 Health'
+            st.session_state.selected_exp_category = 'Health'
         if st.button('🎁 Gifts', key='gifts_btn'):
-            st.session_state.selected_exp_category = '🎁 Gifts'
+            st.session_state.selected_exp_category = 'Gifts'
         if st.button('💪🏽 Gym', key='gym'):
-            st.session_state.selected_exp_category = '💪🏽 Gym'
+            st.session_state.selected_exp_category = 'Gym'
         if st.button('🍾 Free Time', key='free_time_btn'):
-            st.session_state.selected_exp_category = '🍾 Free Time'
+            st.session_state.selected_exp_category = 'Free Time'
 
 def expAccounts():
     allAccounts('expenses')
@@ -48,17 +50,32 @@ def form():
     expDate = st.date_input('Date')
     expNote = st.text_area('Notes (Optional)', height=70)
 
+#----Button------------------------
     if st.button('Add Expense'):
-        #Dictionary to store the income daata 
+        #Expenses dictionary 
         expensesData = {
             'Name': expName,
             'Amount': expAmount,
             'Location': expLocation,
-            'paymentMthd': expPymntMth,
+            'ExpPaymentMthd': expPymntMth,
             'Category': expCategory,
             'Date': expDate,
             'Note': expNote
         }
         saveExpensesData (expensesData)
 
-        st.success(f'🎈 Your Expense has been added successfully!\n\n'f'**➔ Expense Name:** {expName}\n\n'f'**➔ Amount:** ${expAmount}\n\n'f'**➔ Payment Method:** {expPymntMth}\n\n'f'**➔ Category:** {expCategory}\n\n'f'**➔ Date:** {expDate}')
+        #Save the message in a session state
+        st.session_state.success_message_expenses = (
+            f'🎈 Your Expense has been added successfully!\n\n'
+            f'**➔ Expense Name:** {expName}\n\n'
+            f'**➔ Amount:** ${expAmount}\n\n'
+            f'**➔ Payment Method:** {expPymntMth}\n\n'
+            f'**➔ Category:** {expCategory}\n\n'
+            f'**➔ Date:** {expDate}'
+        )
+    
+    #Save the message in session_state only if the user add a income
+    if st.session_state.success_message_expenses:
+        st.success(st.session_state.success_message_expenses)
+        #clear the message at the end
+        st.session_state.success_message_expenses = None
