@@ -4,7 +4,8 @@ import incomes, expenses, investments
 from PIL import Image
 from streamlit_option_menu import option_menu
 from rightSideInfo import allAccounts,show_date 
-from dataFuntions import create_inc_dataFrame, create_exp_dataFrame, create_invstmt_dataFrame
+from dataFuntions import create_inc_dataFrame, create_exp_dataFrame, create_invstmt_dataFrame, total_income, total_expenses, total_investments, net_worth
+
 
 st.set_page_config(
     page_title='Personal Finance Dashboard', page_icon='💰', 
@@ -30,7 +31,21 @@ with st.sidebar:
     selected = option_menu('Manage Your Money!', ['Home', 'Incomes', 'Expenses', 'Investments', 'Financial Report'], menu_icon= 'bi bi-wallet-fill', default_index=0)
 #----------------------------
 if selected == 'Home':
-    st.title (' 💰 Personal Fincance Dashboard 💰 ') 
+    st.title (' WELCOME ')
+
+    col1, col2 = st.columns (2)
+    
+    with col1:
+        colmn1, colmn2, colmn3 = st.columns(3)
+        with colmn1:
+            st.metric(label="💰 Net Worth", value=f"${net_worth:,.2f}")
+        
+        with colmn2:
+            st.metric(label="📥 Total Incomes", value=f"${total_income:,.2f}")
+
+        with colmn3:
+            st.metric(label="📤 Total Expenses", value=f"${total_expenses:,.2f}")
+
     #add features here 
 #----------------------------
 elif selected == 'Incomes':

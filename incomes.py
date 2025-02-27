@@ -62,7 +62,6 @@ def form():
         }
         saveIncomeData (incomeData)
         
-        #Save the message in a session state
         st.session_state.success_message_income = (
             f'🎈 Your Income has been added successfully!\n\n'
             f'**➔ Income Name:** {incName}\n\n'

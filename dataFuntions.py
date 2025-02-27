@@ -9,7 +9,6 @@ def create_inc_dataFrame(fileName):
         df = pd.DataFrame(columns=['Name', 'Amount', 'Account', 'Category', 'Date', 'Note'])
         df.to_csv(fileName, index=False)
     return df
-
 def create_exp_dataFrame(fileName):
     if os.path.exists(fileName):
         df = pd.read_csv(fileName)
@@ -17,7 +16,6 @@ def create_exp_dataFrame(fileName):
         df = pd.DataFrame(columns=['Name', 'Amount', 'Location', 'ExpPaymentMthd', 'Category', 'Date', 'Note'])
         df.to_csv(fileName, index=False)
     return df
-
 def create_invstmt_dataFrame(fileName):
     if os.path.exists(fileName):
         df = pd.read_csv(fileName)
@@ -26,6 +24,7 @@ def create_invstmt_dataFrame(fileName):
         df.to_csv(fileName, index=False)
     return df
 
+#-----------------------------------------------
 #save income data to .CSv File 
 def saveIncomeData(incomeData):
     #create or read rhe dataframe
@@ -44,7 +43,27 @@ def saveExpensesData(expensesData):
     df.to_csv('Data/expenses.csv', index=False)
 
 def saveInvestmtData(investmentData):
-    df = create_inc_dataFrame ('Data/investments.csv')
+    df = create_invstmt_dataFrame ('Data/investments.csv')
     new_row = pd.DataFrame([investmentData])
     df = pd.concat ([df, new_row], ignore_index=True)
     df.to_csv('Data/investments.csv', index=False)
+    
+#-----------------------------------------------
+
+#load data from each section
+income_df = create_inc_dataFrame('Data/incomes.csv')
+expenses_df = create_exp_dataFrame('Data/expenses.csv')
+investments_df = create_invstmt_dataFrame('Data/investments.csv')
+
+# Convert 'Amount' column to numeric (handling empty files)
+income_df['Amount'] = pd.to_numeric(income_df['Amount'], errors='coerce').fillna(0)
+expenses_df['Amount'] = pd.to_numeric(expenses_df['Amount'], errors='coerce').fillna(0)
+investments_df['Amount'] = pd.to_numeric(investments_df['Amount'], errors='coerce').fillna(0)
+
+# Calculate totals
+total_income = income_df['Amount'].sum()
+total_expenses = expenses_df['Amount'].sum()
+total_investments = investments_df['Amount'].sum()
+
+# Calculate net worth
+net_worth = total_income - total_expenses + total_investments
