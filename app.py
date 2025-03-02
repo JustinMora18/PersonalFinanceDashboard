@@ -3,8 +3,8 @@ import pandas as pd
 import incomes, expenses, investments
 from PIL import Image
 from streamlit_option_menu import option_menu
-from rightSideInfo import allAccounts,show_date 
-from dataFuntions import create_inc_dataFrame, create_exp_dataFrame, create_invstmt_dataFrame, total_income, total_expenses, total_investments, net_worth
+from Modules.rightSideInfo import allAccounts,show_date 
+from Modules.dataFuntions import create_inc_dataFrame, create_exp_dataFrame, create_invstmt_dataFrame, total_income, total_expenses, total_investments, net_worth
 
 
 st.set_page_config(
@@ -14,17 +14,18 @@ st.set_page_config(
 
 #initialize the session state variable in case they dont exist
 if 'selected_inc_category' not in st.session_state:
-    st.session_state.selected_inc_category = None
-if 'selected_inc_account' not in st.session_state:
-    st.session_state.selected_inc_account = None
+    st.session_state.selected_inc_category = ''
 if 'selected_exp_category' not in st.session_state:
-    st.session_state.selected_exp_category = None
-if 'selected_exp_account' not in st.session_state:
-    st.session_state.selected_exp_account = None
+    st.session_state.selected_exp_category = ''
 if 'selected_invstmt_type' not in st.session_state:
-        st.session_state.selected_invstmt_type = None
+        st.session_state.selected_invstmt_type = ''
+
+if 'selected_inc_account' not in st.session_state:
+    st.session_state.selected_inc_account = ''
+if 'selected_exp_account' not in st.session_state:
+    st.session_state.selected_exp_account = ''
 if 'selected_invstmt_account' not in st.session_state:
-        st.session_state.selected_invstmt_account = None
+        st.session_state.selected_invstmt_account = ''
 
 #----Sidebar------------------------
 with st.sidebar:
@@ -34,7 +35,7 @@ if selected == 'Home':
     st.title (' WELCOME ')
 
     col1, col2 = st.columns (2)
-    
+
     with col1:
         colmn1, colmn2, colmn3 = st.columns(3)
         with colmn1:

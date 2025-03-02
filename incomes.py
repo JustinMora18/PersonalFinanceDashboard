@@ -1,6 +1,6 @@
 import streamlit as st
-from rightSideInfo import allAccounts
-from dataFuntions import saveIncomeData
+from Modules.rightSideInfo import allAccounts
+from Modules.dataFuntions import saveIncomeData
 
 #initialize the session state variable in case they dont exist
 if 'selected_inc_category' not in st.session_state:
@@ -61,7 +61,7 @@ def form():
             'Note': incNote
         }
         saveIncomeData (incomeData)
-        
+
         st.session_state.success_message_income = (
             f'🎈 Your Income has been added successfully!\n\n'
             f'**➔ Income Name:** {incName}\n\n'

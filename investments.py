@@ -1,14 +1,14 @@
 import streamlit as st
-from rightSideInfo import allAccounts
-from dataFuntions import saveInvestmtData
+from Modules.rightSideInfo import allAccounts
+from Modules.dataFuntions import saveInvestmtData
 
 #initialize the session state variable in case they dont exist
 if 'selected_invstmt_type' not in st.session_state:
-        st.session_state.selected_invstmt_type = None
+        st.session_state.selected_invstmt_type = ''
 if 'selected_invstmt_account' not in st.session_state:
-        st.session_state.selected_invstmt_account = None
+        st.session_state.selected_invstmt_account = ''
 if 'success_message_investmt' not in st.session_state:
-        st.session_state.success_message_investmt = None 
+        st.session_state.success_message_investmt = '' 
 
 def invstmtType():
     st.header('💸 Investment Type')

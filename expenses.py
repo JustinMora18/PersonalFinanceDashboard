@@ -1,14 +1,14 @@
 import streamlit as st
-from rightSideInfo import allAccounts
-from dataFuntions import saveExpensesData
+from Modules.rightSideInfo import allAccounts
+from Modules.dataFuntions import saveExpensesData
 
 #initialize the session state variable in the they dont exist
 if 'selected_exp_category' not in st.session_state:
-        st.session_state.selected_exp_category = None
+        st.session_state.selected_exp_category = ''
 if 'selected_exp_account' not in st.session_state:
-        st.session_state.selected_exp_account = None
+        st.session_state.selected_exp_account = ''
 if 'success_message_expenses' not in st.session_state:
-        st.session_state.success_message_expenses = None 
+        st.session_state.success_message_expenses = '' 
 
 def categories():
     st.header('💸 Expenses Categories')
