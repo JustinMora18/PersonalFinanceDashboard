@@ -2,14 +2,6 @@ import streamlit as st
 from Modules.rightSideInfo import allAccounts
 from Modules.dataFuntions import saveIncomeData
 
-#initialize the session state variable in case they dont exist
-if 'selected_inc_category' not in st.session_state:
-        st.session_state.selected_inc_category = None
-if 'selected_inc_account' not in st.session_state:
-        st.session_state.selected_inc_account = None
-if 'success_message_income' not in st.session_state:
-        st.session_state.success_message_income = '' 
-
 def incCategories():
     st.header('💸 Income Categories')
     col1, col2 = st.columns (2)
@@ -51,6 +43,7 @@ def form():
 
 #----Button------------------------
     if st.button('Add Income'):
+        st.balloons()
         #Income Dictionary
         incomeData = {
             'Name': incName,
@@ -70,7 +63,7 @@ def form():
             f'**➔ Category:** {incCategory}\n\n'
             f'**➔ Date:** {incDate}'
         )
-
+        st.rerun()
     #Save the message in session_state only if the user add a income
     if st.session_state.success_message_income:
         st.success(st.session_state.success_message_income)

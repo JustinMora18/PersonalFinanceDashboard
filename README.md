@@ -59,9 +59,6 @@
     ```
     -This command returns you to the global Python environment.
 
-
-
-
 **Credits** 
 
 👨🏻‍💻 Justin Mora

@@ -1,1 +1,29 @@
-Name,Amount,InvPaymentMthd,Type,Date,Note,type
+Name,Amount,InvPaymentMthd,Type,Date,Note
+Stocks,1500.00,💵 Cash,Stocks,2024-03-01,Investment in stocks
+Mutual Funds,700.00,💳 Card,Mutual funds,2024-03-10,Investment in mutual funds
+ETFs,400.00,💸 Paypal,ETFs,2024-03-18,Investment in ETFs
+Collectibles,200.00,🏦 Bank Account,Collectibles,2024-04-05,Investment in collectibles
+Startup,600.00,💵 Cash,Startup,2024-04-15,Investment in a startup
+Cryptocurrency,500.00,💳 Card,Cryptocurrency,2024-04-22,Bitcoin investment
+Gold,300.00,💸 Paypal,Gold,2024-05-02,Gold purchase
+Other invts,400.00,🏦 Bank Account,Other invts,2024-05-20,Real estate investment
+Stocks,1800.00,💵 Cash,Stocks,2024-06-01,Investment in stocks
+Mutual Funds,900.00,💳 Card,Mutual funds,2024-06-12,Investment in mutual funds
+ETFs,600.00,💸 Paypal,ETFs,2024-07-03,Investment in ETFs
+Collectibles,250.00,🏦 Bank Account,Collectibles,2024-07-15,Investment in collectibles
+Startup,800.00,💵 Cash,Startup,2024-08-10,Investment in a startup
+Cryptocurrency,700.00,💳 Card,Cryptocurrency,2024-08-22,Bitcoin investment
+Gold,500.00,💸 Paypal,Gold,2024-09-02,Gold purchase
+Other invts,600.00,🏦 Bank Account,Other invts,2024-09-18,Real estate investment
+Stocks,2000.00,💵 Cash,Stocks,2024-10-05,Investment in stocks
+Mutual Funds,1100.00,💳 Card,Mutual funds,2024-10-20,Investment in mutual funds
+ETFs,800.00,💸 Paypal,ETFs,2024-11-05,Investment in ETFs
+Collectibles,300.00,🏦 Bank Account,Collectibles,2024-11-25,Investment in collectibles
+Startup,1000.00,💵 Cash,Startup,2024-12-05,Investment in a startup
+Cryptocurrency,900.00,💳 Card,Cryptocurrency,2024-12-15,Bitcoin investment
+Gold,600.00,💸 Paypal,Gold,2025-01-02,Gold purchase
+Other invts,800.00,🏦 Bank Account,Other invts,2025-01-20,Real estate investment
+Stocks,2200.00,💵 Cash,Stocks,2025-02-10,Investment in stocks
+Mutual Funds,1300.00,💳 Card,Mutual funds,2025-02-22,Investment in mutual funds
+ETFs,1000.00,💸 Paypal,ETFs,2025-03-01,Investment in ETFs
+Collectibles,400.00,🏦 Bank Account,Collectibles,2025-03-07,Investment in collectibles

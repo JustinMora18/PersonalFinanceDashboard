@@ -2,14 +2,6 @@ import streamlit as st
 from Modules.rightSideInfo import allAccounts
 from Modules.dataFuntions import saveInvestmtData
 
-#initialize the session state variable in case they dont exist
-if 'selected_invstmt_type' not in st.session_state:
-        st.session_state.selected_invstmt_type = ''
-if 'selected_invstmt_account' not in st.session_state:
-        st.session_state.selected_invstmt_account = ''
-if 'success_message_investmt' not in st.session_state:
-        st.session_state.success_message_investmt = '' 
-
 def invstmtType():
     st.header('💸 Investment Type')
     col1, col2 = st.columns (2)
@@ -51,6 +43,7 @@ def form():
 
     #----Button------------------------
     if st.button('Add Investment'):
+        st.balloons()
         #Invesment dictionary 
         investmentData = {
             'Name': invstmtName,
@@ -65,6 +58,7 @@ def form():
         #Save the message in a session state
         st.session_state.success_message_investmt = (f'🎈 Your Investment has been added successfully!\n\n'f'**➔ Name:** {invstmtName}\n\n'f'**➔ Amount:** ${invstmtAmount}\n\n'f'**➔ Payment Method:** {invstmtAccount}\n\n'f'**➔ Type:** {invstmtType}\n\n'f'**➔ Date:** {invstmtDate}\n\n'f'**➔ Note:**{invstmtNote}'
         )
+        st.experimental_rerun()
 
         #Save the message in session_state only if the user add a income
     if st.session_state.success_message_investmt:

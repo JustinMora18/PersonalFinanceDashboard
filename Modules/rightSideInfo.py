@@ -31,6 +31,5 @@ def allAccounts(account_type='income'):
     return st.session_state[session_key]
 
 def show_date():
-    today = datetime.now().strftime('\'%m-%d-%Y')
-    st.markdown(f'##### 📅 Date')
-    st.markdown(f'##### {today}')
+    today = datetime.now().strftime('%m-%d-%Y')
+    st.markdown(f'##### 📅 Date: {today}')

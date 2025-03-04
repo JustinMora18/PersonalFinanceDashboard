@@ -1,14 +1,9 @@
 import streamlit as st
 from Modules.rightSideInfo import allAccounts
 from Modules.dataFuntions import saveExpensesData
-
-#initialize the session state variable in the they dont exist
-if 'selected_exp_category' not in st.session_state:
-        st.session_state.selected_exp_category = ''
-if 'selected_exp_account' not in st.session_state:
-        st.session_state.selected_exp_account = ''
-if 'success_message_expenses' not in st.session_state:
-        st.session_state.success_message_expenses = '' 
+# Si la clave 'data_updated' no existe en session_state, la inicializamos
+if 'data_updated' not in st.session_state:
+    st.session_state.data_updated = False
 
 def categories():
     st.header('💸 Expenses Categories')
@@ -52,6 +47,7 @@ def form():
 
 #----Button------------------------
     if st.button('Add Expense'):
+        st.balloons()
         #Expenses dictionary 
         expensesData = {
             'Name': expName,
@@ -73,7 +69,8 @@ def form():
             f'**➔ Category:** {expCategory}\n\n'
             f'**➔ Date:** {expDate}'
         )
-    
+        st.session_state.data_updated = True
+        
     #Save the message in session_state only if the user add a income
     if st.session_state.success_message_expenses:
         st.success(st.session_state.success_message_expenses)

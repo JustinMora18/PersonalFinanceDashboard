@@ -1,0 +1,8 @@
+# .streamlit/config.toml
+
+[theme]
+base="light"
+primaryColor="#00A86B"  # Cambia este color si prefieres otro
+backgroundColor="#FFFFFF"  # Fondo blanco
+secondaryBackgroundColor="#F0F0F0"  # Color para las cajas de contenido
+textColor="#000000"  # Texto negro
