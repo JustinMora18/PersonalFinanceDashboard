@@ -47,7 +47,6 @@ with st.sidebar:
     st.divider()
     st.markdown(' 👨🏻‍💻 Made by: \nJustin Mora')
 
-    
 #-------home page header------------
 if selected == 'Home':
     st.header ('Hey, Welcome 👋')
@@ -61,8 +60,6 @@ if selected == 'Home':
 
 #---------
 #---------
-    st.warning('⚠️ This page will update when the page is closed or refreshed.')
-
     st.divider()
     c1, c2, c3, c4 = st.columns (4)
     col1, col2, col3, col4 = st.columns (4)
@@ -185,7 +182,9 @@ if selected == 'Home':
                 # Últimos 5 ingresos
                 st.write(latest_investments)
             st.divider()
-            
+    st.warning( "⚠️ Please note: The data and charts displayed on this page will not update in real-time. "
+        "To view the most up-to-date information, please either refresh the page or restart the app."
+)
 #----------------------------
 elif selected == 'Incomes':
     st.title('💰 Manage Your Incomes')
@@ -260,11 +259,8 @@ elif selected == 'Spreadsheets':
         st.subheader('🗓️ Monthly Income Summary')
         st.dataframe(monthly_income_df, use_container_width=True)
         st.divider()
-        # st.subheader('🗓️ Yearly Income Summary')
-        # st.dataframe()
-
-
-
+        # st.subheader('🗓️ Yearly Incomes Summary')
+        #next feature 
     with tab2:
         st.subheader('📤 Expenses')
         expenses_df = pd.read_csv('Data/expenses.csv')
@@ -273,6 +269,8 @@ elif selected == 'Spreadsheets':
         st.divider()
         st.subheader('🗓️ Monthly Expenses Summary')
         st.dataframe(monthly_expenses_df, use_container_width=True)
+        # st.subheader('🗓️ Yearly Expenses Summary')
+        #next feature 
 
     with tab3:
         st.subheader('📈 Investments')
@@ -282,3 +280,5 @@ elif selected == 'Spreadsheets':
         st.divider()
         st.subheader('🗓️ Monthly Investments Summary')
         st.dataframe(monthly_investments_df, use_container_width=True)
+        # st.subheader('🗓️ Yearly Investments Summary')
+        #next feature 

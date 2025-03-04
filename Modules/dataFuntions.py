@@ -84,7 +84,6 @@ income_by_current_year = income_by_year_category.loc[current_year]
 expenses_by_current_year = expenses_by_year_category.loc[current_year]
 investments_by_current_year = investments_by_year_category.loc[current_year]
 
-
 #-----------------------------------------------
 current_year = 2025
 
@@ -92,7 +91,6 @@ current_year = 2025
 income_current_year = income_df[income_df['Date'].dt.year == current_year]['Amount'].sum()
 expenses_current_year = expenses_df[expenses_df['Date'].dt.year == current_year]['Amount'].sum()
 investments_current_year = investments_df[investments_df['Date'].dt.year == current_year]['Amount'].sum()
-
 
 #-----------------------------------------------
 #get the amount for each account
@@ -114,7 +112,7 @@ accounts = {
 # #add investments by acc
 # for account in accounts.keys():
 #     accounts[account] -= investments_df[investments_df['InvPaymentMthd'] == account]['Amount'].sum()
-    
+
 #-----------------------------------------------
 #grouping by namess, amount and month
 monthly_income = income_df.groupby([income_df['Date'].dt.to_period('M'), 'Name'])['Amount'].sum().reset_index()
@@ -145,7 +143,6 @@ monthly_income_df = monthly_income_df.set_index('Month').reindex(all_dates, fill
 monthly_expenses_df = monthly_expenses_df.set_index('Month').reindex(all_dates, fill_value=0).reset_index()
 monthly_investments_df = monthly_investments_df.set_index('Month').reindex(all_dates, fill_value=0).reset_index()
 
-
 #-----------------------------------------------
 #distributions
 income_distribution = income_df.groupby('Category')['Amount'].sum()
@@ -163,7 +160,6 @@ latest_investments = investments_df.sort_values(by='Date', ascending=False).head
 investment_trends = investments_df.groupby(['Date', 'Type'])['Amount'].sum().unstack()
 
 #-----------------------------------------------
-
 #filter data by month
 monthly_total_income = income_df[
     (income_df['Date'].dt.month == current_month) & (income_df['Date'].dt.year == current_year)

@@ -1,26 +1,45 @@
 Name,Amount,Account,Category,Date,Note
-Salary,2500.0,💵 Cash,Salary,2024-03-03,March salary
-Freelance,800.0,💻 Online Sales,Online Sales,2024-03-05,Web development project
-Teaching,600.0,💵 Cash,Teaching,2024-03-08,Private tutoring session
-Gift,200.0,💵 Cash,Gift,2024-03-10,Birthday gift
-Salary,2600.0,💵 Cash,Salary,2024-03-15,March salary
-Freelance,850.0,💻 Online Sales,Online Sales,2024-03-18,Mobile app design
-Financial Aid,1000.0,💵 Cash,Financial Aid,2024-03-20,Research funding
-Salary,2700.0,💵 Cash,Salary,2024-04-03,April salary
-Teaching,650.0,💵 Cash,Teaching,2024-04-05,Math tutoring
-Freelance,900.0,💻 Online Sales,Online Sales,2024-04-07,Website design
-Project,1200.0,💻 Online Sales,Project,2024-04-10,Software development
-Salary,2800.0,💵 Cash,Salary,2024-04-15,April salary
-Financial Aid,1100.0,💵 Cash,Financial Aid,2024-04-20,Research grant
-Parents,500.0,💵 Cash,Parents,2024-04-22,Support from parents
-Salary,2900.0,💵 Cash,Salary,2024-05-03,May salary
-Teaching,700.0,💵 Cash,Teaching,2024-05-05,English tutoring
-Freelance,1000.0,💻 Online Sales,Online Sales,2024-05-08,Consulting work
-Project,1500.0,💻 Online Sales,Project,2024-05-10,App development
-Salary,3000.0,💵 Cash,Salary,2024-05-15,May salary
-Gift,300.0,💵 Cash,Gift,2024-05-18,Wedding gift
-Financial Aid,1200.0,💵 Cash,Financial Aid,2024-05-20,Financial support
-found,2000.0,Cash,Others,2025-03-02,
-,0.0,Select an Account  👉,Select a category 👉,2025-03-03,
-found,2500.0,Cash,Others,2025-03-03,I found it in the bathroom
-,0.0,Select an Account  👉,Select a category 👉,2025-03-03,
+Salary,2500.0,Cash,Salary,2024-01-01,January salary
+Freelance,1200.0,Online Sales,Online Sales,2024-01-05,Web development project
+Teaching,600.0,Cash,Teaching,2024-01-10,Private tutoring session
+Gift,200.0,Cash,Gift,2024-01-12,Birthday gift
+Financial Aid,1000.0,Cash,Financial Aid,2024-01-15,Research funding
+Online Sales,1200.0,Online Sales,Online Sales,2024-01-20,Freelance web design
+Parents,500.0,Cash,Parents,2024-02-01,Support from parents
+Salary,2600.0,Cash,Salary,2024-02-01,February salary
+Teaching,650.0,Cash,Teaching,2024-02-10,Math tutoring
+Project,1000.0,Online Sales,Project,2024-02-15,App development project
+Salary,2700.0,Cash,Salary,2024-03-01,March salary
+Gift,300.0,Cash,Gift,2024-03-05,Wedding gift
+Freelance,1200.0,Online Sales,Online Sales,2024-03-10,Web development project
+Salary,2800.0,Cash,Salary,2024-04-01,April salary
+Teaching,700.0,Cash,Teaching,2024-04-05,English tutoring
+Freelance,1500.0,Online Sales,Online Sales,2024-04-10,Mobile app design
+Project,1300.0,Online Sales,Project,2024-04-15,Software development project
+Salary,2900.0,Cash,Salary,2024-05-01,May salary
+Gift,350.0,Cash,Gift,2024-05-05,Graduation gift
+Freelance,1100.0,Online Sales,Online Sales,2024-05-10,SEO work
+Parents,600.0,Cash,Parents,2024-06-01,Support from parents
+Salary,3000.0,Cash,Salary,2024-06-01,June salary
+Freelance,1200.0,Online Sales,Online Sales,2024-06-05,Web development project
+Salary,3100.0,Cash,Salary,2024-07-01,July salary
+Freelance,1300.0,Online Sales,Online Sales,2024-07-05,Website redesign project
+Teaching,750.0,Cash,Teaching,2024-07-10,Math tutoring session
+Salary,3200.0,Cash,Salary,2024-08-01,August salary
+Freelance,1400.0,Online Sales,Online Sales,2024-08-10,App development project
+Freelance,1500.0,Online Sales,Online Sales,2024-09-01,Web development project
+Salary,3300.0,Cash,Salary,2024-09-01,September salary
+Freelance,1600.0,Online Sales,Online Sales,2024-10-01,App development project
+Salary,3400.0,Cash,Salary,2024-10-01,October salary
+Freelance,1700.0,Online Sales,Online Sales,2024-11-01,Web development project
+Salary,3500.0,Cash,Salary,2024-11-01,November salary
+Freelance,1800.0,Online Sales,Online Sales,2024-12-01,App development project
+Salary,3600.0,Cash,Salary,2024-12-01,December salary
+Parents,700.0,Cash,Parents,2025-01-01,Support from parents
+Freelance,1900.0,Online Sales,Online Sales,2025-01-01,Website redesign project
+Salary,3700.0,Cash,Salary,2025-01-01,January salary
+Freelance,2000.0,Online Sales,Online Sales,2025-02-01,Web development project
+Salary,3800.0,Cash,Salary,2025-02-01,February salary
+Gift,400.0,Cash,Gift,2025-02-01,Wedding gift
+Freelance,2100.0,Online Sales,Online Sales,2025-03-01,SEO work
+Salary,3900.0,Cash,Salary,2025-03-01,March salary
